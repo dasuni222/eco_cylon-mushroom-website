@@ -39,6 +39,14 @@ const products = [
     description: 'A hand-picked assortment suited for curries, pasta, and quick skillet meals.',
     badge: 'New',
   },
+  {
+    id: 6,
+    name: 'Peanut Mushrooms',
+    price: 5.9,
+    unit: 'per 250g pack',
+    description: 'A nutty, earthy variety that adds rich flavor to sautés and soups.',
+    badge: 'Seasonal',
+  },
 ];
 
 export default products;

@@ -2,11 +2,10 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Products from './components/Products';
 import About from './components/About';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
-import mushroom1 from './assets/mushroom1.svg';
-import mushroom2 from './assets/mushroom2.svg';
-import farm from './assets/farm.svg';
+import farm from './assets/Mushroom.jpeg';
+import mushroom1 from './assets/mushroom1.jpeg';
+import mushroom2 from './assets/mushroom2.jpeg';
 
 export default function App() {
   return (
@@ -56,7 +55,27 @@ export default function App() {
             </article>
           </div>
         </section>
-        <Contact />
+
+        <section className="clear-putter-section" id="clear-putter">
+          <div className="section-heading">
+            <p className="eyebrow">Clear Putter</p>
+            <h2>Clean, crisp, and crafted for everyday freshness</h2>
+          </div>
+          <div className="clear-putter-grid">
+            <article className="card clear-putter-card">
+              <h3>Pure freshness</h3>
+              <p>Our clear putter selection keeps every harvest clean, neat, and ready for your kitchen or market table.</p>
+            </article>
+            <article className="card clear-putter-card">
+              <h3>Easy ordering</h3>
+              <p>Choose your preferred mushrooms, update quantities in your cart, and send your order straight to WhatsApp.</p>
+            </article>
+            <article className="card clear-putter-card">
+              <h3>Reliable quality</h3>
+              <p>Fresh, hand-picked produce with the same dark, polished look and feel as our header section.</p>
+            </article>
+          </div>
+        </section>
       </main>
       <Footer />
     </div>
