@@ -2,11 +2,10 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Products from './components/Products';
 import About from './components/About';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
-import mushroom1 from './assets/mushroom1.svg';
-import mushroom2 from './assets/mushroom2.svg';
-import farm from './assets/farm.svg';
+import mushroom1 from './assets/mushroom1.jpeg';
+import mushroom2 from './assets/mushroom2.jpeg';
+import farm from './assets/Mushroom.jpeg';
 
 export default function App() {
   return (
@@ -56,7 +55,6 @@ export default function App() {
             </article>
           </div>
         </section>
-        <Contact />
       </main>
       <Footer />
     </div>

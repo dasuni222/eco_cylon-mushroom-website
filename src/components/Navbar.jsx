@@ -14,7 +14,6 @@ export default function Navbar() {
           <a href="#products">Products</a>
           <a href="#benefits">Benefits</a>
           <a href="#gallery">Gallery</a>
-          <a href="#contact">Contact</a>
         </nav>
       </div>
     </header>
