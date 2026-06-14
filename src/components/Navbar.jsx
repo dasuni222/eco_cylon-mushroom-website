@@ -5,8 +5,8 @@ export default function Navbar() {
     <header className="navbar">
       <div className="navbar-inner">
         <a className="brand" href="#home">
-          <img src={mushroomLogo} alt="Eco Cylon MUSHROOMS logo" className="brand-logo" />
-          <span>Eco Cylon MUSHROOMS</span>
+          <img src={mushroomLogo} alt="Eco Cylon Shop logo" className="brand-logo" />
+          <span>Eco Cylon Shop</span>
         </a>
         <nav className="nav-links">
           <a href="#home">Home</a>
