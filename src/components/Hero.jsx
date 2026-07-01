@@ -1,29 +1,54 @@
+import { motion } from 'framer-motion';
+import { Leaf, ShieldCheck, Truck } from 'lucide-react';
+import heroImage from '../assets/Mushroom.jpeg';
+
 export default function Hero() {
   return (
     <section className="hero-section" id="home">
       <div className="hero-copy">
-        <p className="eyebrow">Fresh from our farm</p>
-        <h1>Nature’s earthy goodness, grown with care.</h1>
+        <p className="eyebrow">Premium Organic Sri Lankan Products</p>
+        <motion.h1
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          Pure. Natural. <br /> Good for Life.
+        </motion.h1>
         <p className="lede">
-          We cultivate premium mushrooms using clean, sustainable methods and deliver them fresh to homes, chefs,
-          and wellness lovers.
+          Discover 100% organic mushrooms, herbal essentials, and sustainably sourced products from Sri Lanka.
         </p>
-        <a className="cta" href="#products">Explore our varieties</a>
+        <div className="hero-actions">
+          <a className="cta" href="#products">Shop Now</a>
+          <a className="cta secondary" href="#about">About Us</a>
+        </div>
+        <div className="hero-badges">
+          <div>
+            <Leaf size={16} />
+            <span>100% Organic</span>
+          </div>
+          <div>
+            <ShieldCheck size={16} />
+            <span>Eco Friendly</span>
+          </div>
+          <div>
+            <Truck size={16} />
+            <span>Islandwide Delivery</span>
+          </div>
+        </div>
       </div>
-      <aside className="hero-panel">
-        <div className="mini-stat">
-          <strong>12+</strong>
-          <span>years growing mushrooms</span>
+
+      <motion.aside
+        className="hero-panel"
+        initial={{ opacity: 0, x: 24 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.7 }}
+      >
+        <img src={heroImage} alt="Fresh oyster mushrooms and organic packaging" />
+        <div className="hero-panel-card">
+          <h3>Freshly curated for wellness</h3>
+          <p>From farm to table, our products are prepared with care for healthier homes and a greener planet.</p>
         </div>
-        <div className="mini-stat">
-          <strong>100%</strong>
-          <span>local and fresh</span>
-        </div>
-        <div className="mini-stat">
-          <strong>5</strong>
-          <span>signature mushroom varieties</span>
-        </div>
-      </aside>
+      </motion.aside>
     </section>
   );
 }
