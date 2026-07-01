@@ -1,23 +1,24 @@
 import { Leaf, Sparkles, HeartPulse, Gem } from 'lucide-react';
 
 const features = [
-  { icon: Leaf, title: 'Natural', text: 'Pure ingredients sourced with respect for people and the earth.' },
-  { icon: Sparkles, title: 'Sustainable', text: 'Responsible practices that support long-term wellness and growth.' },
-  { icon: HeartPulse, title: 'Healthy', text: 'Everyday essentials designed for nutrition, comfort, and balance.' },
-  { icon: Gem, title: 'Premium Quality', text: 'Careful selection and thoughtful packaging for exceptional value.' },
+  { icon: Leaf, title: 'Natural & Organic', text: 'Pure ingredients sourced directly from the finest organic farms in Sri Lanka.' },
+  { icon: Sparkles, title: 'Sustainably Sourced', text: 'Ethical and responsible farming methods that preserve our ecosystems.' },
+  { icon: HeartPulse, title: 'Traditional Wellness', text: 'Authentic Ceylon spices and herbs crafted for a healthier lifestyle.' },
+  { icon: Gem, title: 'Export Quality', text: 'Handpicked selection and premium food-safe packaging for global standards.' },
 ];
 
 export default function About() {
   return (
     <section className="about-section" id="about">
-      <div className="section-heading">
-        <p className="eyebrow">About EcoNest</p>
-        <h2>We are a Sri Lankan eco brand bringing organic goodness to your table.</h2>
+      <div className="section-heading-centered">
+        <p className="eyebrow-accent">About Us</p>
+        <h2>We are a proud Sri Lankan brand bringing nature's goodness to the world.</h2>
+        <div className="accent-line"></div>
       </div>
       <div className="about-grid">
         <div className="about-copy">
           <p>
-            EcoNest Sri Lanka is committed to creating a healthier lifestyle through 100% organic products, mindful sourcing, and premium natural care.
+            Eco Ceylon Shop is dedicated to sharing the rich, fertile goodness of Ceylon with the globe. From organic spices to wellness teas, every product is selected with care, honoring both traditional farming heritage and contemporary quality standards.
           </p>
           <a className="cta secondary" href="#contact">Learn More</a>
         </div>
@@ -27,7 +28,7 @@ export default function About() {
               <div className="feature-icon">
                 <Icon size={20} />
               </div>
-              <div>
+              <div className="feature-text-block">
                 <h3>{title}</h3>
                 <p>{text}</p>
               </div>

@@ -1,53 +1,78 @@
 import { motion } from 'framer-motion';
-import { Leaf, ShieldCheck, Truck } from 'lucide-react';
-import heroImage from '../assets/Mushroom.jpeg';
+import { Leaf, Shield, Globe, Award } from 'lucide-react';
+import heroImage from '../assets/hero_spices.png';
 
 export default function Hero() {
   return (
     <section className="hero-section" id="home">
       <div className="hero-copy">
-        <p className="eyebrow">Premium Organic Sri Lankan Products</p>
+        <p className="eyebrow-accent">From Our Land to the World</p>
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          Pure. Natural. <br /> Good for Life.
+          Pure Sri Lankan <br /> Goodness
         </motion.h1>
         <p className="lede">
-          Discover 100% organic mushrooms, herbal essentials, and sustainably sourced products from Sri Lanka.
+          100% Natural | Organic | Premium Quality <br />
+          Spices, Foods, Herbs & More from Sri Lanka.
         </p>
         <div className="hero-actions">
-          <a className="cta" href="#products">Shop Now</a>
-          <a className="cta secondary" href="#about">About Us</a>
-        </div>
-        <div className="hero-badges">
-          <div>
+          <a className="cta" href="#products">
             <Leaf size={16} />
-            <span>100% Organic</span>
+            <span>Shop Now</span>
+          </a>
+        </div>
+        
+        {/* Badges layout from reference image */}
+        <div className="hero-badges-ref">
+          <div className="badge-item">
+            <div className="badge-icon-wrapper">
+              <Leaf size={16} />
+            </div>
+            <div className="badge-text">
+              <strong>100% Natural</strong>
+              <span>& Organic</span>
+            </div>
           </div>
-          <div>
-            <ShieldCheck size={16} />
-            <span>Eco Friendly</span>
+          <div className="badge-item">
+            <div className="badge-icon-wrapper">
+              <Shield size={16} />
+            </div>
+            <div className="badge-text">
+              <strong>Sustainably</strong>
+              <span>Sourced</span>
+            </div>
           </div>
-          <div>
-            <Truck size={16} />
-            <span>Islandwide Delivery</span>
+          <div className="badge-item">
+            <div className="badge-icon-wrapper">
+              <Award size={16} />
+            </div>
+            <div className="badge-text">
+              <strong>Export Quality</strong>
+              <span>Products</span>
+            </div>
+          </div>
+          <div className="badge-item">
+            <div className="badge-icon-wrapper">
+              <Globe size={16} />
+            </div>
+            <div className="badge-text">
+              <strong>Worldwide</strong>
+              <span>Delivery</span>
+            </div>
           </div>
         </div>
       </div>
 
       <motion.aside
-        className="hero-panel"
+        className="hero-panel-ref"
         initial={{ opacity: 0, x: 24 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.7 }}
       >
-        <img src={heroImage} alt="Fresh oyster mushrooms and organic packaging" />
-        <div className="hero-panel-card">
-          <h3>Freshly curated for wellness</h3>
-          <p>From farm to table, our products are prepared with care for healthier homes and a greener planet.</p>
-        </div>
+        <img src={heroImage} alt="Premium Sri Lankan spices and packaging" />
       </motion.aside>
     </section>
   );
