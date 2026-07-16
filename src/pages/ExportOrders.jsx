@@ -1,29 +1,33 @@
-import React from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-
 export default function ExportOrders() {
   return (
-    <div className="site-shell">
-      <Navbar />
-      <main style={{ padding: '4rem 0' }}>
-        <div className="section-heading-centered">
+    <main className="page-shell">
+      <section className="page-hero page-hero-alt">
+        <div className="page-hero-content">
           <p className="eyebrow-accent">Export Orders</p>
-          <h2>Export & Bulk Order Inquiries</h2>
-          <div className="accent-line"></div>
-        </div>
-        <div style={{ width: 'min(1200px, calc(100% - 2rem))', margin: '0 auto' }}>
+          <h1>Easy International Ordering</h1>
           <p>
-            For export and large-quantity wholesale orders please contact our export team. Include product list,
-            quantities, and destination country. We'll provide a tailored quote and lead time.
+            Place export orders for premium Sri Lankan spices, herbs, mushrooms, and wellness
+            products. We support worldwide shipping with dedicated export packaging.
           </p>
-
-          <h3 style={{ marginTop: '1.2rem' }}>Contact</h3>
-          <p>Email: orders@ecoceylonshop.com</p>
-          <p>WhatsApp: +94 76 123 4567</p>
+          <a className="primary-cta" href="mailto:orders@ecoceylonshop.com">
+            Contact Export Team
+          </a>
         </div>
-      </main>
-      <Footer />
-    </div>
+      </section>
+
+      <section className="page-copy-section">
+        <h2>What we offer</h2>
+        <p>
+          Our export team helps you source bulk-quality natural ingredients and custom packaging.
+          Request a quote and we will handle documentation, customs paperwork, and safe delivery.
+        </p>
+        <ul className="bullet-list">
+          <li>Bulk order pricing for spices, herbs, mushrooms, and dried foods</li>
+          <li>Flexible FOB and CIF shipping options</li>
+          <li>Custom labeling and private-label packaging</li>
+          <li>Fast response from our export support specialists</li>
+        </ul>
+      </section>
+    </main>
   );
 }

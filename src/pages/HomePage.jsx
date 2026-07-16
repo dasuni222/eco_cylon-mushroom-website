@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import About from '../components/About';
@@ -45,11 +45,13 @@ const categories = [
 
 export default function HomePage() {
   const [cart, setCart] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const searchInputRef = useRef(null);
   const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
     <div className="site-shell">
-      <Navbar cartCount={cartCount} />
+      <Navbar cartCount={cartCount} onSearchClick={() => searchInputRef.current?.focus()} />
       <main>
         <Hero />
 
@@ -110,7 +112,13 @@ export default function HomePage() {
         <About />
 
         {/* Products Section */}
-        <Products cart={cart} setCart={setCart} />
+        <Products
+          cart={cart}
+          setCart={setCart}
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          searchInputRef={searchInputRef}
+        />
 
         {/* Trust Badges Banner */}
         <section className="trust-badges-section">

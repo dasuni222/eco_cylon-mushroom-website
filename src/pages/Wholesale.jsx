@@ -1,27 +1,33 @@
-import React from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-
 export default function Wholesale() {
   return (
-    <div className="site-shell">
-      <Navbar />
-      <main style={{ padding: '4rem 0' }}>
-        <div className="section-heading-centered">
+    <main className="page-shell">
+      <section className="page-hero page-hero-alt">
+        <div className="page-hero-content">
           <p className="eyebrow-accent">Wholesale</p>
-          <h2>Wholesale & Bulk Pricing</h2>
-          <div className="accent-line"></div>
-        </div>
-        <div style={{ width: 'min(1200px, calc(100% - 2rem))', margin: '0 auto' }}>
+          <h1>Wholesale Partnerships</h1>
           <p>
-            We offer competitive wholesale pricing for retailers and distributors. Contact us for tiered pricing and
-            packaging options.
+            Partner with Eco Ceylon Shop for wholesale supply of organic Sri Lankan foods and wellness
+            products. Ideal for retailers, cafés, hotels, and international distributors.
           </p>
-          <h3 style={{ marginTop: '1.2rem' }}>Get Started</h3>
-          <p>Email: wholesale@ecoceylonshop.com</p>
+          <a className="primary-cta" href="mailto:wholesale@ecoceylonshop.com">
+            Start a Wholesale Inquiry
+          </a>
         </div>
-      </main>
-      <Footer />
-    </div>
+      </section>
+
+      <section className="page-copy-section">
+        <h2>Grow your business with us</h2>
+        <p>
+          Enjoy vibrant flavors, premium ingredients, and reliable delivery when you source directly from
+          our trusted Sri Lankan producers.
+        </p>
+        <ul className="bullet-list">
+          <li>Special wholesale pricing for recurring orders</li>
+          <li>Dedicated account support for product selection</li>
+          <li>Quality-assured shipments and pallet-ready packaging</li>
+          <li>Easy ordering for retailers, cafés, and hospitality brands</li>
+        </ul>
+      </section>
+    </main>
   );
 }

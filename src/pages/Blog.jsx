@@ -1,22 +1,28 @@
-import React from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-
 export default function Blog() {
   return (
-    <div className="site-shell">
-      <Navbar />
-      <main style={{ padding: '4rem 0' }}>
-        <div className="section-heading-centered">
+    <main className="page-shell">
+      <section className="page-hero page-hero-alt">
+        <div className="page-hero-content">
           <p className="eyebrow-accent">Blog</p>
-          <h2>News & Recipes</h2>
-          <div className="accent-line"></div>
+          <h1>Stories from Sri Lanka</h1>
+          <p>
+            Discover recipes, wellness tips, and behind-the-scenes stories about our natural products from Sri Lanka.
+          </p>
+          <a className="primary-cta" href="/#products">
+            Shop Natural Products
+          </a>
         </div>
-        <div style={{ width: 'min(1200px, calc(100% - 2rem))', margin: '0 auto' }}>
-          <p>Welcome to our blog - tips, recipes and stories from Sri Lanka.</p>
-        </div>
-      </main>
-      <Footer />
-    </div>
+      </section>
+
+      <section className="page-copy-section">
+        <h2>Latest Insights</h2>
+        <ul className="bullet-list">
+          <li>How to use Sri Lankan spices in everyday cooking</li>
+          <li>Benefits of organic mushroom powder for immunity</li>
+          <li>The story of our farmers and regenerative agriculture</li>
+          <li>Tips for choosing the right tea blends for wellness</li>
+        </ul>
+      </section>
+    </main>
   );
 }

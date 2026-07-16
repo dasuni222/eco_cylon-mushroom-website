@@ -1,20 +1,11 @@
-import { useMemo, useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useMemo, useState } from 'react';
 import { ShoppingCart } from 'lucide-react';
 import products from '../data/products';
 
 const ownerPhone = '94761234567';
 const ownerEmail = 'orders@ecoceylonshop.com';
 
-export default function Products({ cart, setCart }) {
-  const [searchTerm, setSearchTerm] = useState('');
-  const location = useLocation();
-
-  useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const q = params.get('q') || '';
-    if (q) setSearchTerm(q);
-  }, [location.search]);
+export default function Products({ cart, setCart, searchTerm, setSearchTerm, searchInputRef }) {
 
   const [orderForm, setOrderForm] = useState({
     name: '',
@@ -124,6 +115,7 @@ export default function Products({ cart, setCart }) {
             <input
               className="search-input"
               type="search"
+              ref={searchInputRef}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Search products..."
