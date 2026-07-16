@@ -1,4 +1,5 @@
 import { Mail, Phone, MapPin, Globe } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
@@ -24,12 +25,12 @@ export default function Footer() {
         <div className="footer-col-links">
           <h3>Quick Links</h3>
           <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#products">Shop</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#export">Export Orders</a></li>
-            <li><a href="#wholesale">Wholesale</a></li>
-            <li><a href="#contact">Contact Us</a></li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/">Shop</Link></li>
+            <li><Link to="#about">About Us</Link></li>
+            <li><Link to="/export-orders">Export Orders</Link></li>
+            <li><Link to="/wholesale">Wholesale</Link></li>
+            <li><Link to="#contact">Contact Us</Link></li>
           </ul>
         </div>
 

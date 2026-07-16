@@ -1,8 +1,39 @@
 import { useState } from 'react';
 import { Menu, ShoppingBag, X, Search, User } from 'lucide-react';
+import { useRef, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Navbar({ cartCount = 0 }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [langOpen, setLangOpen] = useState(false);
+  const [currencyOpen, setCurrencyOpen] = useState(false);
+  const [language, setLanguage] = useState('English');
+  const [currency, setCurrency] = useState('USD ($)');
+  const navigate = useNavigate();
+  const langRef = useRef();
+  const curRef = useRef();
+
+  useEffect(() => {
+    function onDocClick(e) {
+      if (langRef.current && !langRef.current.contains(e.target)) setLangOpen(false);
+      if (curRef.current && !curRef.current.contains(e.target)) setCurrencyOpen(false);
+    }
+
+    document.addEventListener('click', onDocClick);
+    return () => document.removeEventListener('click', onDocClick);
+  }, []);
+
+  const submitSearch = (e) => {
+    e?.preventDefault?.();
+    setShowSearch(false);
+    if (searchQuery.trim()) {
+      navigate(`/?q=${encodeURIComponent(searchQuery.trim())}`);
+    } else {
+      navigate('/');
+    }
+  };
 
   return (
     <header className="sticky-nav">
@@ -17,12 +48,34 @@ export default function Navbar({ cartCount = 0 }) {
           <span>🌐 We Export Worldwide</span>
         </div>
         <div className="top-bar-right">
-          <div className="currency-lang">
-            <span>English</span>
-            <span className="arrow">▼</span>
+          <div className="currency-lang" ref={langRef}>
+            <button type="button" className="lang-btn" onClick={() => setLangOpen((s) => !s)}>
+              <span>{language}</span>
+              <span className="arrow">▼</span>
+            </button>
+            {langOpen && (
+              <div className="lang-dropdown">
+                <button onClick={() => { setLanguage('English'); setLangOpen(false); }}>English</button>
+                <button onClick={() => { setLanguage('සිංහල'); setLangOpen(false); }}>සිංහල</button>
+                <button onClick={() => { setLanguage('தமிழ்'); setLangOpen(false); }}>தமிழ்</button>
+              </div>
+            )}
+
             <span className="separator">|</span>
-            <span>USD ($)</span>
-            <span className="arrow">▼</span>
+
+            <div ref={curRef} style={{ display: 'inline-block' }}>
+              <button type="button" className="lang-btn" onClick={() => setCurrencyOpen((s) => !s)}>
+                <span>{currency}</span>
+                <span className="arrow">▼</span>
+              </button>
+              {currencyOpen && (
+                <div className="lang-dropdown">
+                  <button onClick={() => { setCurrency('USD ($)'); setCurrencyOpen(false); }}>USD ($)</button>
+                  <button onClick={() => { setCurrency('EUR (€)'); setCurrencyOpen(false); }}>EUR (€)</button>
+                  <button onClick={() => { setCurrency('LKR (Rs)'); setCurrencyOpen(false); }}>LKR (Rs)</button>
+                </div>
+              )}
+            </div>
           </div>
           <div className="top-socials">
             <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook">
@@ -75,30 +128,42 @@ export default function Navbar({ cartCount = 0 }) {
         </a>
 
         <nav className={`nav-links ${isOpen ? 'open' : ''}`}>
-          <a href="#home" onClick={() => setIsOpen(false)}>Home</a>
-          <a href="#products" onClick={() => setIsOpen(false)}>Shop</a>
-          <a href="#about" onClick={() => setIsOpen(false)}>About Us</a>
-          <a href="#export" onClick={() => setIsOpen(false)}>Export Orders</a>
-          <a href="#wholesale" onClick={() => setIsOpen(false)}>Wholesale</a>
-          <a href="#blog" onClick={() => setIsOpen(false)}>Blog</a>
-          <a href="#contact" onClick={() => setIsOpen(false)}>Contact Us</a>
+          <Link to="/" onClick={() => setIsOpen(false)}>Home</Link>
+          <Link to="/" onClick={() => setIsOpen(false)}>Shop</Link>
+          <Link to="#about" onClick={() => setIsOpen(false)}>About Us</Link>
+          <Link to="/export-orders" onClick={() => setIsOpen(false)}>Export Orders</Link>
+          <Link to="/wholesale" onClick={() => setIsOpen(false)}>Wholesale</Link>
+          <Link to="/blog" onClick={() => setIsOpen(false)}>Blog</Link>
+          <Link to="#contact" onClick={() => setIsOpen(false)}>Contact Us</Link>
         </nav>
 
         <div className="nav-actions">
-          <button className="nav-icon-btn" aria-label="Search">
+          <button className="nav-icon-btn" aria-label="Search" onClick={() => setShowSearch((s) => !s)}>
             <Search size={20} />
           </button>
-          <button className="nav-icon-btn" aria-label="Profile">
+          <Link to="/profile" className="nav-icon-btn" aria-label="Profile">
             <User size={20} />
-          </button>
-          <a className="cart-pill" href="#products" aria-label="View cart">
+          </Link>
+          <Link className="cart-pill" to="/" aria-label="View cart">
             <ShoppingBag size={20} />
             {cartCount > 0 && <span className="cart-badge-count">{cartCount}</span>}
-          </a>
+          </Link>
           <button className="menu-toggle" onClick={() => setIsOpen((prev) => !prev)} aria-label="Toggle menu">
             {isOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
+
+        {showSearch && (
+          <div className="search-overlay">
+            <form onSubmit={submitSearch} className="search-overlay-form">
+              <input autoFocus value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} placeholder="Search products..." />
+              <div className="search-actions">
+                <button type="submit" className="cta">Search</button>
+                <button type="button" className="ghost-btn" onClick={() => setShowSearch(false)}>Close</button>
+              </div>
+            </form>
+          </div>
+        )}
       </div>
     </header>
   );

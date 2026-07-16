@@ -2,6 +2,7 @@
 
 :root {
   --primary-green: #113224;
+  --light-green: #8bc34a;
   --primary-green-hover: #1b4d37;
   --accent-gold: #c29b38;
   --accent-gold-hover: #a5802d;
@@ -70,8 +71,8 @@ a {
 
 /* Top Info Bar */
 .top-info-bar {
-  background-color: var(--primary-green);
-  color: #e2ede8;
+  background-color: var(--light-green);
+  color: #113224;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -108,6 +109,78 @@ a {
 .arrow {
   font-size: 0.6rem;
   opacity: 0.8;
+}
+
+.lang-btn {
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.lang-dropdown {
+  position: absolute;
+  margin-top: 6px;
+  background: #ffffff;
+  color: var(--primary-green);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  box-shadow: var(--shadow-md);
+  padding: 0.35rem;
+  display: flex;
+  flex-direction: column;
+  z-index: 1200;
+}
+
+.lang-dropdown button {
+  background: transparent;
+  border: none;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  cursor: pointer;
+  color: inherit;
+}
+
+.lang-dropdown button:hover {
+  background: rgba(17,50,36,0.04);
+}
+
+.search-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  display: grid;
+  place-items: center;
+  z-index: 2000;
+  padding: 2rem;
+}
+
+.search-overlay-form {
+  background: #ffffff;
+  padding: 1.25rem;
+  border-radius: 8px;
+  width: min(720px, 100%);
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  box-shadow: var(--shadow-lg);
+}
+
+.search-overlay-form input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.search-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
 }
 
 .top-socials {
@@ -959,19 +1032,20 @@ a {
 }
 
 .whatsapp-btn {
-  background-color: var(--accent-gold);
+  background-color: var(--light-green);
   color: #ffffff;
-  border: none;
+  border: 1px solid #ffffff;
   padding: 0.9rem 1rem;
   font-weight: 700;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s, transform 0.14s;
   width: 100%;
 }
 
 .whatsapp-btn:hover {
-  background-color: var(--accent-gold-hover);
+  background-color: #7cb233;
+  transform: translateY(-1px);
 }
 
 /* Trust Badges Section */
@@ -1085,8 +1159,8 @@ a {
 
 /* Footer Section */
 .footer-ref {
-  background-color: var(--primary-green);
-  color: #ffffff;
+  background-color: var(--light-green);
+  color: #113224;
   padding: 4rem 0 2rem;
   width: 100%;
 }

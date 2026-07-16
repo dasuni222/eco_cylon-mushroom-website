@@ -1,4 +1,5 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { ShoppingCart } from 'lucide-react';
 import products from '../data/products';
 
@@ -7,6 +8,13 @@ const ownerEmail = 'orders@ecoceylonshop.com';
 
 export default function Products({ cart, setCart }) {
   const [searchTerm, setSearchTerm] = useState('');
+  const location = useLocation();
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const q = params.get('q') || '';
+    if (q) setSearchTerm(q);
+  }, [location.search]);
 
   const [orderForm, setOrderForm] = useState({
     name: '',
